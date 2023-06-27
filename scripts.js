@@ -42,12 +42,12 @@ $(document).ready(function () {
     } else if (filter === "DataNascimento" || filter === "Salario") {
       operatorSelect.empty();
       operatorSelect.append(`
-        <option value="IGUAL">Igual</option>
-        <option value="MENOR_IGUAL">Menor ou Igual</option>
-        <option value="MENOR">Menor</option>
-        <option value="MAIOR_IGUAL">Maior ou Igual</option>
-        <option value="MAIOR">Maior</option>
-        <option value="DIFERENTE">Diferente</option>
+      <option value="MENOR_IGUAL">Menor ou Igual</option>
+      <option value="MENOR">Menor</option>
+      <option value="MAIOR_IGUAL">Maior ou Igual</option>
+      <option value="MAIOR">Maior</option>
+      <option value="DIFERENTE">Diferente</option>
+      <option value="IGUAL">Igual</option>
       `);
     } else {
       operatorSelect.empty();
