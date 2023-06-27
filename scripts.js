@@ -28,6 +28,33 @@ $(document).ready(function () {
       });
   }
 
+  function updateOperadorOptions(filter) {
+    var operatorSelect = $("#operador");
+    operatorSelect.empty();
+
+    if (filter === "NomeCompleto") {
+      operatorSelect.empty();
+      operatorSelect.append(`
+        <option value="NAO_CONTEM">Não Contém</option>
+        <option value="CONTEM">Contém</option>
+        <option value="IGUAL">Igual</option>
+      `);
+    } else if (filter === "DataNascimento" || filter === "Salario") {
+      operatorSelect.empty();
+      operatorSelect.append(`
+        <option value="IGUAL">Igual</option>
+        <option value="MENOR_IGUAL">Menor ou Igual</option>
+        <option value="MENOR">Menor</option>
+        <option value="MAIOR_IGUAL">Maior ou Igual</option>
+        <option value="MAIOR">Maior</option>
+        <option value="DIFERENTE">Diferente</option>
+      `);
+    } else {
+      operatorSelect.empty();
+      operatorSelect.append(` <option value="IGUAL">Igual</option>`);
+    }
+  }
+
   var action = "LISTAR-TODOS";
   getEmployees(action);
 
@@ -48,6 +75,10 @@ $(document).ready(function () {
     var valor = $("#valor").val("");
     var operador = "";
     getEmployees(action, filtro, valor, operador);
+  });
+  $("#filtro").change(function () {
+    var filter = $(this).val();
+    updateOperadorOptions(filter);
   });
 
   function loadEmployees(page) {
